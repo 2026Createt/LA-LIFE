@@ -26,6 +26,9 @@ body {
 
 /* NAVBAR */
 nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     top: 0;
     width: 100%;
@@ -33,13 +36,23 @@ nav {
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.06);
     z-index: 1000;
+    padding: 10px 50px;
+}
+
+nav .logo {
+    position: absolute;
+    left: 50px;
+}
+
+nav .logo img {
+    height: 40px; /* Klein und proportional */
+    width: auto;
 }
 
 nav ul {
     display: flex;
     justify-content: center;
     gap: 45px;
-    padding: 22px;
     list-style: none;
 }
 
@@ -199,6 +212,9 @@ footer {
 <body>
 
 <nav>
+    <div class="logo">
+        <img src="la_life.png" alt="LA Life Online Logo">
+    </div>
     <ul>
         <li><a href="#about">Start</a></li>
         <li><a href="#rules">Regeln</a></li>
@@ -216,7 +232,7 @@ footer {
     <div class="hero-content">
         <h1>LA Life Online</h1>
         <p>Erlebe realistisches Roleplay auf einem neuen Level.</p>
-        <a href="https://discord.gg/la-life" target="_blank" class="invite-btn">LA@LIFE Discord beitreten</a>
+        <a href="https://discord.gg/la-life" target="_blank" class="invite-btn">@everyone Discord beitreten</a>
     </div>
 </div>
 
