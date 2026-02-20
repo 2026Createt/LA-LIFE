@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LA Life</title>
+<title>LA Life Online</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -104,6 +104,27 @@ nav a:hover {
     font-size: 22px;
     max-width: 700px;
     color: #d0d0d0;
+    margin-bottom: 25px;
+}
+
+/* DISCORD INVITE BUTTON */
+.invite-btn {
+    display: inline-block;
+    padding: 15px 45px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 50px;
+    background: #7289da; /* Discord-Blau */
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(114,137,218,0.5);
+}
+
+.invite-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(114,137,218,0.7);
+    background: #5b6eae;
 }
 
 /* CONTAINER */
@@ -193,8 +214,9 @@ footer {
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-        <h1>LA Life</h1>
+        <h1>LA Life Online</h1>
         <p>Erlebe realistisches Roleplay auf einem neuen Level.</p>
+        <a href="https://discord.gg/la-life" target="_blank" class="invite-btn">@everyone Discord beitreten</a>
     </div>
 </div>
 
@@ -228,13 +250,13 @@ footer {
     <div class="section accent" id="aboutus">
         <h2>Über uns</h2>
         <p>
-            LA Life ist ein Roleplay-Projekt mit Fokus auf Realismus und Spielerfreiheit.
+            LA Life Online ist ein Roleplay-Projekt mit Fokus auf Realismus und Spielerfreiheit.
             Unsere Community legt Wert auf glaubwürdige Storys, Dynamik und langfristige Entwicklung.
         </p>
     </div>
 
     <footer>
-        © 2026 LA Life  – Alle Rechte vorbehalten
+        © 2026 LA Life Online – Alle Rechte vorbehalten
     </footer>
 
 </div>
