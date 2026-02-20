@@ -216,7 +216,7 @@ footer {
     <div class="hero-content">
         <h1>LA Life Online</h1>
         <p>Erlebe realistisches Roleplay auf einem neuen Level.</p>
-        <a href="https://discord.gg/la-life" target="_blank" class="invite-btn">@everyone Discord beitreten</a>
+        <a href="https://discord.gg/la-life" target="_blank" class="invite-btn">LA@LIFE Discord beitreten</a>
     </div>
 </div>
 
