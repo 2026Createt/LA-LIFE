@@ -29,7 +29,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10,10,10,0.85);
+    background: rgba(10,10,10,0.8);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.06);
     z-index: 1000;
@@ -49,17 +49,22 @@ nav a {
     font-size: 13px;
     letter-spacing: 2px;
     text-transform: uppercase;
+    transition: 0.3s;
 }
 
 nav a:hover {
     color: #4f9cff;
 }
 
-/* HERO VIDEO */
+/* HERO SECTION */
 .hero {
     height: 100vh;
     position: relative;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .hero video {
@@ -70,31 +75,35 @@ nav a:hover {
     min-height: 100%;
     transform: translate(-50%, -50%);
     object-fit: cover;
-    filter: brightness(0.35);
+    filter: brightness(0.35) blur(1px);
+}
+
+.hero-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(15,15,20,0.6), rgba(15,15,20,0.9));
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 30px;
+    padding: 0 20px;
+    animation: fadeInUp 1.5s ease forwards;
 }
 
 .hero-content h1 {
-    font-size: 68px;
+    font-size: 72px;
     letter-spacing: 7px;
     margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(79,156,255,0.6);
 }
 
 .hero-content p {
-    font-size: 20px;
-    color: #d0d0d0;
+    font-size: 22px;
     max-width: 700px;
+    color: #d0d0d0;
 }
 
 /* CONTAINER */
@@ -102,15 +111,18 @@ nav a:hover {
     max-width: 1100px;
     margin: 0 auto;
     padding: 140px 30px 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
 }
 
 /* SECTIONS */
 .section {
-    background: rgba(15,15,15,0.88);
-    border-radius: 16px;
+    background: rgba(20,20,30,0.65);
+    border-radius: 20px;
     padding: 60px;
-    margin-bottom: 80px;
-    box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
     opacity: 0;
     transform: translateY(40px);
     transition: all 0.8s ease;
@@ -122,31 +134,47 @@ nav a:hover {
 }
 
 .section h2 {
-    font-size: 30px;
-    margin-bottom: 25px;
+    font-size: 36px;
+    margin-bottom: 20px;
     letter-spacing: 2px;
+    color: #ffffff;
 }
 
 .section p {
-    font-size: 17px;
-    color: #e2e2e2;
+    font-size: 18px;
+    color: #d0d0d0;
+    line-height: 1.7;
 }
 
 .accent {
-    border-left: 4px solid #4f9cff;
+    border-left: 5px solid #4f9cff;
     padding-left: 30px;
 }
 
 /* FOOTER */
 footer {
-    margin-top: 140px;
+    margin-top: 80px;
     text-align: center;
     font-size: 14px;
-    color: #aaaaaa;
+    color: #888;
+    padding: 40px 20px;
+    background: rgba(10,10,10,0.7);
+    backdrop-filter: blur(8px);
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 </style>
 </head>
-
 <body>
 
 <nav>
@@ -163,6 +191,7 @@ footer {
     <video autoplay muted loop>
         <source src="https://cdn.coverr.co/videos/coverr-los-angeles-sunset-1569/1080p.mp4" type="video/mp4">
     </video>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1>LA Life Online</h1>
         <p>Erlebe realistisches Roleplay auf einem neuen Level.</p>
@@ -212,7 +241,6 @@ footer {
 
 <script>
 const sections = document.querySelectorAll('.section');
-
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -220,7 +248,6 @@ const observer = new IntersectionObserver(entries => {
         }
     });
 }, { threshold: 0.2 });
-
 sections.forEach(section => observer.observe(section));
 </script>
 
