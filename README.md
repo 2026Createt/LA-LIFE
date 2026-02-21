@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LA Life </title>
+<title>LA Life</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -20,8 +20,18 @@ html {
 body {
     font-family: "Inter", "Segoe UI", Arial, sans-serif;
     color: #f2f2f2;
-    background: #0b0b0b;
     line-height: 1.8;
+    background: url("hintergrund.png") center center / cover no-repeat fixed;
+}
+
+/* DARK OVERLAY OVER BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,15,0.75), rgba(10,10,15,0.95));
+    backdrop-filter: blur(4px);
+    z-index: -1;
 }
 
 /* NAVBAR */
@@ -32,11 +42,11 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10,10,10,0.8);
+    background: rgba(10,10,10,0.6);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     z-index: 1000;
-    padding: 10px 50px;
+    padding: 12px 50px;
 }
 
 nav .logo {
@@ -45,13 +55,12 @@ nav .logo {
 }
 
 nav .logo img {
-    height: 40px; /* Klein und proportional */
+    height: 40px;
     width: auto;
 }
 
 nav ul {
     display: flex;
-    justify-content: center;
     gap: 45px;
     list-style: none;
 }
@@ -69,74 +78,47 @@ nav a:hover {
     color: #4f9cff;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
     height: 100vh;
-    position: relative;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-.hero video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    filter: brightness(0.35) blur(1px);
-}
-
-.hero-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(15,15,20,0.6), rgba(15,15,20,0.9));
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
     padding: 0 20px;
-    animation: fadeInUp 1.5s ease forwards;
 }
 
 .hero-content h1 {
     font-size: 72px;
     letter-spacing: 7px;
     margin-bottom: 20px;
-    text-shadow: 0 0 20px rgba(79,156,255,0.6);
+    text-shadow: 0 0 25px rgba(0,0,0,0.8);
 }
 
 .hero-content p {
     font-size: 22px;
     max-width: 700px;
-    color: #d0d0d0;
-    margin-bottom: 25px;
+    margin: 0 auto 30px;
+    color: #dcdcdc;
 }
 
-/* DISCORD INVITE BUTTON */
+/* DISCORD BUTTON */
 .invite-btn {
     display: inline-block;
-    padding: 15px 45px;
+    padding: 16px 50px;
     font-size: 18px;
     font-weight: 600;
     border-radius: 50px;
-    background: #7289da; /* Discord-Blau */
+    background: #7289da;
     color: #ffffff;
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(114,137,218,0.5);
+    transition: 0.3s ease;
+    box-shadow: 0 8px 25px rgba(114,137,218,0.5);
 }
 
 .invite-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 30px rgba(114,137,218,0.7);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(114,137,218,0.7);
     background: #5b6eae;
 }
 
@@ -144,7 +126,7 @@ nav a:hover {
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 140px 30px 140px;
+    padding: 140px 30px;
     display: flex;
     flex-direction: column;
     gap: 80px;
@@ -152,10 +134,10 @@ nav a:hover {
 
 /* SECTIONS */
 .section {
-    background: rgba(20,20,30,0.65);
+    background: rgba(20,20,30,0.55);
     border-radius: 20px;
     padding: 60px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
     backdrop-filter: blur(10px);
     opacity: 0;
     transform: translateY(40px);
@@ -171,13 +153,11 @@ nav a:hover {
     font-size: 36px;
     margin-bottom: 20px;
     letter-spacing: 2px;
-    color: #ffffff;
 }
 
 .section p {
     font-size: 18px;
-    color: #d0d0d0;
-    line-height: 1.7;
+    color: #e2e2e2;
 }
 
 .accent {
@@ -187,28 +167,14 @@ nav a:hover {
 
 /* FOOTER */
 footer {
-    margin-top: 80px;
     text-align: center;
     font-size: 14px;
-    color: #888;
-    padding: 40px 20px;
-    background: rgba(10,10,10,0.7);
-    backdrop-filter: blur(8px);
-}
-
-/* ANIMATIONS */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    color: #aaa;
+    padding: 60px 20px;
 }
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -223,16 +189,11 @@ footer {
     </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-    <video autoplay muted loop>
-        <source src="https://cdn.coverr.co/videos/coverr-los-angeles-sunset-1569/1080p.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1>LA Life</h1>
         <p>Erlebe realistisches Roleplay auf einem neuen Level.</p>
-        <a href="https://discord.gg/la-life" target="_blank" class="invite-btn">LA@LIFE Discord beitreten</a>
+        <a href="https://discord.gg/la-life" target="_blank" class="invite-btn">LA@Life Discord beitreten</a>
     </div>
 </div>
 
@@ -266,16 +227,16 @@ footer {
     <div class="section accent" id="aboutus">
         <h2>Über uns</h2>
         <p>
-            LA Life ist ein Roleplay-Projekt mit Fokus auf Realismus und Spielerfreiheit.
+            LA Life  ist ein Roleplay-Projekt mit Fokus auf Realismus und Spielerfreiheit.
             Unsere Community legt Wert auf glaubwürdige Storys, Dynamik und langfristige Entwicklung.
         </p>
     </div>
 
-    <footer>
-        © 2026 LA Life  – Alle Rechte vorbehalten
-    </footer>
-
 </div>
+
+<footer>
+    © 2026 LA Life – Alle Rechte vorbehalten.
+</footer>
 
 <script>
 const sections = document.querySelectorAll('.section');
@@ -286,6 +247,7 @@ const observer = new IntersectionObserver(entries => {
         }
     });
 }, { threshold: 0.2 });
+
 sections.forEach(section => observer.observe(section));
 </script>
 
